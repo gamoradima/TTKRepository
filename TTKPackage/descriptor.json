@@ -1,0 +1,15 @@
+﻿{
+  "Descriptor": {
+    "UId": "db22fadd-7a56-69a1-02b7-1d2bba99045d",
+    "Name": "TTKPackage",
+    "ModifiedOnUtc": "\/Date(1635324188000)\/",
+    "Maintainer": "Customer",
+    "DependsOn": [
+      {
+        "UId": "d7559847-f38e-410c-baee-6f43bbe80d42",
+        "PackageVersion": "7.8.0",
+        "Name": "SalesEnterpriseSoftkey_ENU"
+      }
+    ]
+  }
+}
