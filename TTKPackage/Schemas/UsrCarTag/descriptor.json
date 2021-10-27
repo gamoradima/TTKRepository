@@ -1,0 +1,13 @@
+﻿{
+  "Descriptor": {
+    "UId": "f9e8f7bf-fba6-4a8f-805e-6300451e7efa",
+    "Name": "UsrCarTag",
+    "ModifiedOnUtc": "\/Date(1635334394000)\/",
+    "Parent": {
+      "UId": "9e3f203c-e905-4de5-9468-335b193f2439",
+      "Name": "BaseTag"
+    },
+    "ManagerName": "EntitySchemaManager",
+    "Caption": "Тег раздела Автомобили"
+  }
+}

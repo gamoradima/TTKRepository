@@ -1,0 +1,13 @@
+﻿{
+  "Descriptor": {
+    "UId": "c79e50fb-daa6-422c-aac9-d36c692f91bd",
+    "Name": "UsrCarInTag",
+    "ModifiedOnUtc": "\/Date(1635334396000)\/",
+    "Parent": {
+      "UId": "5894a2b0-51d5-419a-82bb-238674634270",
+      "Name": "BaseEntityInTag"
+    },
+    "ManagerName": "EntitySchemaManager",
+    "Caption": "Тег в записи раздела Автомобили"
+  }
+}

@@ -1,0 +1,13 @@
+﻿{
+  "Descriptor": {
+    "UId": "a6050ca2-8a47-4b97-8f83-2529d22de4de",
+    "Name": "UsrCar1Page",
+    "ModifiedOnUtc": "\/Date(1635334380000)\/",
+    "Parent": {
+      "UId": "d62293c0-7f14-44b1-b547-735fb40499cd",
+      "Name": "BaseModulePageV2"
+    },
+    "ManagerName": "ClientUnitSchemaManager",
+    "Caption": "Страница редактирования: \"Автомобили\""
+  }
+}

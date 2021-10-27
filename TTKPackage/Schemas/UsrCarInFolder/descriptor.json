@@ -1,0 +1,13 @@
+﻿{
+  "Descriptor": {
+    "UId": "33824239-05cd-44a2-8fcb-14653b55fb37",
+    "Name": "UsrCarInFolder",
+    "ModifiedOnUtc": "\/Date(1635334391000)\/",
+    "Parent": {
+      "UId": "4f63bafb-e9e7-4082-b92e-66b97c14017c",
+      "Name": "BaseItemInFolder"
+    },
+    "ManagerName": "EntitySchemaManager",
+    "Caption": "Автомобили в группе"
+  }
+}
