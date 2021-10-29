@@ -1,0 +1,13 @@
+﻿{
+  "Descriptor": {
+    "UId": "5f5f3d1c-d606-4f2d-b41b-9b6c4a4c2c5e",
+    "Name": "UsrCarMaintenance",
+    "ModifiedOnUtc": "\/Date(1635498191000)\/",
+    "Parent": {
+      "UId": "1bab9dcf-17d5-49f8-9536-8e0064f1dce0",
+      "Name": "BaseEntity"
+    },
+    "ManagerName": "EntitySchemaManager",
+    "Caption": "ТО автомобиля"
+  }
+}

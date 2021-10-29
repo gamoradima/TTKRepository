@@ -1,0 +1,13 @@
+﻿{
+  "Descriptor": {
+    "UId": "6648e42d-68fb-4b78-8036-09f2790b7635",
+    "Name": "UsrSchema1c11b163Detail",
+    "ModifiedOnUtc": "\/Date(1635498188000)\/",
+    "Parent": {
+      "UId": "01eb38ee-668a-42f0-999d-c2534f979089",
+      "Name": "BaseGridDetailV2"
+    },
+    "ManagerName": "ClientUnitSchemaManager",
+    "Caption": "Схема детали: \"ТО автомобилей\""
+  }
+}

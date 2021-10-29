@@ -3,6 +3,11 @@
 	<Group Type="String">
 		<Items>
 			<Item Name="Caption" Value="Страница редактирования: &quot;Автомобили&quot;" />
+			<Item Name="LocalizableStrings.CalcPaymentCaption.Value" Value="Рассчитать ежемесячный платёж" />
+			<Item Name="LocalizableStrings.MyButtonCaption.Value" Value="Кнопка!" />
+			<Item Name="LocalizableStrings.Tab4dfba105TabLabelTabCaption.Value" Value="ТО Автомобиля" />
+			<Item Name="LocalizableStrings.UsrMaintetanceDetailDetailCaptionOnPage.Value" Value="ТО автомобиля" />
+			<Item Name="LocalizableStrings.ValueMustBePositive.Value" Value="Значение должно быть больше нуля" />
 		</Items>
 	</Group>
 </Resources>

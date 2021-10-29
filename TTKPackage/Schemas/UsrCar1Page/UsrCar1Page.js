@@ -11,10 +11,74 @@ define("UsrCar1Page", [], function() {
 					"masterColumn": "Id",
 					"detailColumn": "UsrCar"
 				}
+			},
+			"UsrMaintetanceDetail": {
+				"schemaName": "UsrSchema1c11b163Detail",
+				"entitySchemaName": "UsrCarMaintenance",
+				"filter": {
+					"detailColumn": "UsrCar",
+					"masterColumn": "Id"
+				}
 			}
 		}/**SCHEMA_DETAILS*/,
 		businessRules: /**SCHEMA_BUSINESS_RULES*/{}/**SCHEMA_BUSINESS_RULES*/,
-		methods: {},
+		methods: {
+			onMyButtonClick: function() {
+				// todo
+				this.console.log("Моя кнопка нажата.");
+			},
+			getMyButtonEnabled: function() {
+				let result = true;
+				var name = this.get("UsrName");
+				if (!name) {
+					result = false;
+				}
+				return result;
+			},
+			getActions: function() {
+                // Вызывается родительская реализация метода для получения
+                // коллекции проинициализированных действий базовой страницы.
+                var actionMenuItems = this.callParent(arguments);
+                // Добавление линии-разделителя.
+                actionMenuItems.addItem(this.getButtonMenuItem({
+                    Type: "Terrasoft.MenuSeparator",
+                    Caption: ""
+                }));
+                // Добавление пункта меню в список действий страницы записи.
+                actionMenuItems.addItem(this.getButtonMenuItem({
+                    // Привязка заголовка пункта меню к локализуемой строке схемы.
+                    "Caption": {bindTo: "Resources.Strings.CalcPaymentCaption"},
+                    // Привязка метода-обработчика действия.
+                    "Tag": "runCalcAction",
+                    // Привязка свойства доступности пункта меню к значению, которое возвращает метод isRunning().
+                    "Enabled": true
+                }));
+                return actionMenuItems;
+            },
+			runCalcAction: function() {
+				let price = this.get("UsrPrice");
+				let payment = price / 12;
+				this.showInformationDialog("Ежемесячный платёж: " + payment);
+			},
+			positiveValueValidator: function(value, column) {
+				let msg = "";
+				//let price = this.get("UsrPrice");
+				if (value < 0) {
+					msg = this.get("Resources.Strings.ValueMustBePositive");
+				}
+				return {
+                    // Сообщение об ошибке валидации.
+                    invalidMessage: msg
+                };
+			},
+			
+			setValidationConfig: function() {
+                // Вызывает инициализацию валидаторов родительской модели представления.
+                this.callParent(arguments);
+                // Для колонки [DueDate] добавляется метод-валидатор dueDateValidator().
+                this.addColumnValidator("UsrPrice", this.positiveValueValidator);
+            }
+		},
 		dataModels: /**SCHEMA_DATA_MODELS*/{}/**SCHEMA_DATA_MODELS*/,
 		diff: /**SCHEMA_DIFF*/[
 			{
@@ -71,6 +135,38 @@ define("UsrCar1Page", [], function() {
 				"propertyName": "items",
 				"index": 2
 			},
+            // Метаданные для добавления на страницу пользовательской кнопки.
+            {
+                // Выполняется операция добавления компонента на страницу.
+                "operation": "insert",
+                // Мета-имя родительского контейнера, в который добавляется кнопка.
+                "parentName": "ProfileContainer",
+                // Кнопка добавляется в коллекцию компонентов
+                // родительского элемента.
+                "propertyName": "items",
+                // Мета-имя добавляемой кнопки.
+                "name": "MyButton",
+                // Свойства, передаваемые в конструктор компонента.
+                "values": {
+					"layout": {
+						"colSpan": 12,
+						"rowSpan": 1,
+						"column": 0,
+						"row": 3,
+						"layoutName": "ProfileContainer"
+					},					
+                    // Тип добавляемого элемента — кнопка.
+                    itemType: Terrasoft.ViewItemType.BUTTON,
+                    // Привязка заголовка кнопки к локализуемой строке схемы.
+                    caption: {bindTo: "Resources.Strings.MyButtonCaption"},
+                    // Привязка метода-обработчика нажатия кнопки.
+                    click: {bindTo: "onMyButtonClick"},
+                    // Привязка свойства доступности кнопки.
+                    enabled: {bindTo: "getMyButtonEnabled"},
+                    // Стиль отображения кнопки.
+                    "style": Terrasoft.controls.ButtonEnums.style.BLUE
+                }
+            },
 			{
 				"operation": "insert",
 				"name": "LOOKUP82bf1442-5a5b-475c-b7dd-28258bae2cb0",
@@ -111,10 +207,10 @@ define("UsrCar1Page", [], function() {
 			},
 			{
 				"operation": "insert",
-				"name": "NotesAndFilesTab",
+				"name": "Tab4dfba105TabLabel",
 				"values": {
 					"caption": {
-						"bindTo": "Resources.Strings.NotesAndFilesTabCaption"
+						"bindTo": "Resources.Strings.Tab4dfba105TabLabelTabCaption"
 					},
 					"items": [],
 					"order": 0
@@ -122,6 +218,31 @@ define("UsrCar1Page", [], function() {
 				"parentName": "Tabs",
 				"propertyName": "tabs",
 				"index": 0
+			},
+			{
+				"operation": "insert",
+				"name": "UsrMaintetanceDetail",
+				"values": {
+					"itemType": 2,
+					"markerValue": "added-detail"
+				},
+				"parentName": "Tab4dfba105TabLabel",
+				"propertyName": "items",
+				"index": 0
+			},
+			{
+				"operation": "insert",
+				"name": "NotesAndFilesTab",
+				"values": {
+					"caption": {
+						"bindTo": "Resources.Strings.NotesAndFilesTabCaption"
+					},
+					"items": [],
+					"order": 1
+				},
+				"parentName": "Tabs",
+				"propertyName": "tabs",
+				"index": 1
 			},
 			{
 				"operation": "insert",
@@ -179,7 +300,7 @@ define("UsrCar1Page", [], function() {
 				"operation": "merge",
 				"name": "ESNTab",
 				"values": {
-					"order": 1
+					"order": 2
 				}
 			}
 		]/**SCHEMA_DIFF*/
